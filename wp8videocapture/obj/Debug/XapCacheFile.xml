@@ -1,0 +1,12 @@
+﻿<xapCache source="C:\code\winphone8cv\wp8videocapture\Bin\Debug\wp8videocapture_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="23.02.2016 12:49:59">
+  <file source="C:\code\winphone8cv\wp8videocapture\obj\Debug\wp8videocapture.dll" archivePath="wp8videocapture.dll" lastWriteTime="23.02.2016 12:49:58" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="23.02.2016 12:27:32" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="23.02.2016 12:27:32" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="23.02.2016 12:27:32" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="23.02.2016 12:27:32" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="23.02.2016 12:27:32" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="23.02.2016 12:27:46" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Bin\Debug\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="23.02.2016 12:27:32" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="23.02.2016 12:27:32" />
+  <file source="C:\code\winphone8cv\wp8videocapture\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="23.02.2016 12:42:01" />
+</xapCache>
