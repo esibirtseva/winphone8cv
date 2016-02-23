@@ -14,6 +14,9 @@ using System.IO.IsolatedStorage;
 using Microsoft.Devices;
 using wp8videocapture.Resources;
 using System.Windows.Media;
+using Microsoft.Phone.Tasks;
+using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace wp8videocapture
 {
@@ -21,16 +24,16 @@ namespace wp8videocapture
     {
         // Viewfinder for capturing video.
         private VideoBrush videoRecorderBrush;
-
         // Source and device for capturing video.
         private CaptureSource captureSource;
-        private VideoCaptureDevice videoCaptureDevice;
+        private VideoCaptureDevice videoCaptureDevice;        
 
         // Constructor
         public MainPage()
         {
             InitializeComponent();
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -48,7 +51,9 @@ namespace wp8videocapture
             base.OnNavigatedFrom(e);
         }
 
-        
+        public void setText(string str) {
+            txtDebug.Text = str;
+        }
         public void InitializeVideoRecorder()
         {
             if (captureSource == null)
@@ -56,7 +61,7 @@ namespace wp8videocapture
                 // Create the VideoRecorder objects.
                 captureSource = new CaptureSource();
                 videoCaptureDevice = CaptureDeviceConfiguration.GetDefaultVideoCaptureDevice();
-
+                captureSource.VideoCaptureDevice = videoCaptureDevice;
                 // Add eventhandlers for captureSource.
                 captureSource.CaptureFailed += new EventHandler<ExceptionRoutedEventArgs>(OnCaptureFailed);
 
@@ -70,12 +75,39 @@ namespace wp8videocapture
                     // Display the viewfinder image on the rectangle.
                     viewfinderRectangle.Fill = videoRecorderBrush;
 
+                    // Wiring the CaptureImageCompleted event handler
+                    captureSource.CaptureImageCompleted += (s, e) =>
+                    {
+                        // Do something with the camera snapshot
+                        // e.Result is a WriteableBitmap
+                        Process(e.Result);
+                    };
+
+
                     // Start video capture and display it on the viewfinder.
                     captureSource.Start();
+
+                    var dispatcherTimer = new DispatcherTimer();
+                    dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 33); // 30 fps
+                    dispatcherTimer.Tick += (s, e) =>
+                    {
+                        // Process camera snapshot if started
+                        if (captureSource.State == CaptureState.Started)
+                        {
+                            // CaptureImageAsync fires the CaptureImageCompleted event
+                            captureSource.CaptureImageAsync();
+                        }
+                    };
+                    // Start the timer
+                    dispatcherTimer.Start();
 
                     // Set the button state and the message.
                 }
             }
+        }
+        private void Process(WriteableBitmap img) {
+            // this is the Pixels raw data! use it wisely
+            int[] arr = img.Pixels;
         }
 
         private void DisposeVideoPlayer()

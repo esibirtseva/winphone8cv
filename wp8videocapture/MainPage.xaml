@@ -10,7 +10,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="Landscape" Orientation="LandscapeLeft"
     shell:SystemTray.IsVisible="False">
 
     <Canvas x:Name="LayoutRoot" Background="Transparent">
@@ -18,30 +18,25 @@
         <!--Camera viewfinder >-->
         <Rectangle 
             x:Name="viewfinderRectangle"
-            Height="640" 
-            Width="480" 
+            Width="640" 
+            Height="480" 
             HorizontalAlignment="Left" 
-            Canvas.Top="80"/>
+            Canvas.Left="80"/>
 
         <MediaElement 
             x:Name="VideoPlayer" 
-            Height="640" 
-            Width="480"
+            Width="640" 
+            Height="480"
             AutoPlay="True" 
-            RenderTransformOrigin="0.5, 0.5" 
-            VerticalAlignment="Center" 
-            HorizontalAlignment="Center" 
             Stretch="Fill"
-            Canvas.Top="80"/>
+            Canvas.Left="80"/>
 
         <!--Used for debugging >-->
         <TextBlock 
             Height="40" 
             HorizontalAlignment="Left" 
-            Margin="100,428,0,0"
             Name="txtDebug" 
-            VerticalAlignment="Top"
-            Width="626"
+            Width="480"
             FontSize="24" 
             FontWeight="ExtraBold"/>
 
